@@ -1,0 +1,25 @@
+{
+    "name": "jakharbek/yii2-logs",
+    "description": "Logs",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","logs"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jakharbek",
+            "email": "javhar_work@mail.ru"
+        },
+        {
+            "name": "utkir",
+            "email": "utkir1996@list.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "jakharbek\\logs\\": "src"
+        }
+    }
+}
