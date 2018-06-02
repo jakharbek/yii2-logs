@@ -61,7 +61,7 @@ class Logs extends \yii\db\ActiveRecord
         $log = new self();
         $log->message = $message;
         if ($log->save()) {
-            $log->link($model::tableName(), $model);
+            $model->link('logs', $log);
             return true;
         }
 

@@ -9,11 +9,6 @@
 namespace jakharbek\logs;
 
 use Yii;
-use common\modules\logs\behaviors\LogBehavior;
-use common\modules\logs\interfaces\LogInterface;
-use common\modules\logs\models\Logs;
-use common\modules\logs\models\LogsSearch;
-use common\modules\tasks\models\Tasks;
 use Faker\Provider\Base;
 use yii\base\Widget;
 use yii\data\ActiveDataProvider;
@@ -83,16 +78,4 @@ trait Log
         $this->_provider = Yii::createObject($arr);
         return $this->_provider;
     }
-
-    /**
-     * @return string|void
-     */
-    public function run()
-    {
-        return $this->render($this->view,[
-            'model' => $this->model,
-            'provider' => $this->provider
-        ]);
-    }
-
 }
