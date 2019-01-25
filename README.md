@@ -38,28 +38,7 @@ yii migrate --migrationPath=@vendor/jakharbek/yii2-logs/src/migrations
 Если вы хотите применить к определёному таблицы вам нужно создать связь между ними
 и в той модели (ActiveRecord) таблицы, реализовать интерфейс LogInterface
 
-После вам нужно добавить в ваш класс новое поведение:
-```php
-jakharbek\logs\behaviors\LogBehavior
-```
 
-и тогда вы сможете добавить новый лог имено к этой модели
-
-
-```php
-$task = Tasks::findOne(1);
-$task->createLog("Ваш лог");
-
-```
-
-или если вам не нужно данное удобство вы можете использовать статисческий метод класса Logs
-```php
-/**
-    @param mixed $message
-    @param LogInterface|ActiveRecord $model
-*/
-Logs::create($message,$model = null);
-```
 Пример 1:
 
 ```php

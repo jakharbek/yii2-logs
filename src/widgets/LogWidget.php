@@ -21,15 +21,4 @@ use jakharbek\logs\Log;
 class LogWidget extends Widget
 {
     use Log;
-
-    /**
-     * @return string|void
-     */
-    public function run()
-    {
-        return $this->render($this->view,[
-            'model' => $this->model,
-            'provider' => $this->provider
-        ]);
-    }
 }

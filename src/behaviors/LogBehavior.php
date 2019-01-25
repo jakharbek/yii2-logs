@@ -8,7 +8,6 @@
 
 namespace jakharbek\logs\behaviors;
 
-
 use jakharbek\logs\models\Logs;
 use yii\base\Behavior;
 
@@ -19,6 +18,6 @@ class LogBehavior extends Behavior
 {
     public function createLog($message)
     {
-        Logs::create($message,$this->owner);
+        return Logs::create($message,$this->owner);
     }
 }

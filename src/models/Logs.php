@@ -35,6 +35,8 @@ class Logs extends \yii\db\ActiveRecord
     {
         return [
             [['message'], 'string'],
+            [['user_id'],'integer'],
+            [['date_create'],'default','value' => time()]
         ];
     }
 
@@ -46,6 +48,7 @@ class Logs extends \yii\db\ActiveRecord
         return [
             'log_id'  => Yii::t( 'main', 'Log ID' ),
             'message' => Yii::t( 'main', 'Message' ),
+            'user_id' => Yii::t('main', 'The User-ID')
         ];
     }
 
@@ -60,11 +63,11 @@ class Logs extends \yii\db\ActiveRecord
         if(!($model instanceof ActiveRecord)){return false;}
         $log = new self();
         $log->message = $message;
+        $log->user_id = Yii::$app->user->identity->getId();
         if ($log->save()) {
-            $model->link('logs', $log);
-            return true;
+            $model->link("logs", $log);
+            return $log;
         }
-
         return false;
     }
 
@@ -80,5 +83,9 @@ class Logs extends \yii\db\ActiveRecord
         }
         return $this->message;
     }
+    public static function attach($to = null,$log = null){
+        return true;
+    }
+
 
 }

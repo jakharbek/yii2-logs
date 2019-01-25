@@ -16,7 +16,9 @@ class m180426_160151_logs extends Migration
 
 		$this->createTable( '{{%logs}}', [
 			'log_id'  => $this->primaryKey(),
-			'message' => $this->text()
+			'message' => $this->text(),
+            'user_id' => $this->integer(),
+            'date_create' => $this->integer()
 		], $tableOptions );
 	}
 
